@@ -7,7 +7,7 @@ public class Digitalclock implements Runnable {
     int hours = 0, minutes = 0, seconds = 0;
     String timeString = "";
     JButton b;
-    JButtin Date;
+    JButton Date;
 
     Digitalclock() {
         f = new JFrame();
