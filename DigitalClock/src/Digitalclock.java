@@ -1,18 +1,21 @@
 import javax.swing.*;
 import java.text.*;
 import java.util.*;
+import java.awt.*
+
 public class Digitalclock implements Runnable {
     JFrame f;
     Thread t = null;
     int hours = 0, minutes = 0, seconds = 0;
     String timeString = "";
+    String datestr="";
     JButton b;
     JButton Date;
-
+    
     Digitalclock() {
         f = new JFrame();
         f.setTitle("Digital clock");
-        f.getContentPane().setBackground(Color.LIGHT_GRAY);
+        f.getContentPane().setBackground(Color.cyan);
         t = new Thread(this);
         t.start();
         b = new JButton();
@@ -48,7 +51,7 @@ public class Digitalclock implements Runnable {
                 Calendar c = Calendar.getInstance();
                 c.setTime(sdf.parse(dt));
                 c.add(Calendar.DATE, 1);  // number of days to add
-                str = sdf.format(c.getTime());
+                datestr = sdf.format(c.getTime());
                 printDate();
             }
         } catch (Exception e) {
@@ -61,7 +64,7 @@ public class Digitalclock implements Runnable {
     
     public void printDate()
     {
-        Date.setText(str);
+        Date.setText(datestr);
     }
 
     public static void main(String[] args) {
