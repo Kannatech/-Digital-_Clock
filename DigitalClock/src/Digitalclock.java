@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.text.*;
 import java.util.*;
-import java.awt.*
+import java.awt.*;
 
 public class Digitalclock implements Runnable {
     JFrame f;
