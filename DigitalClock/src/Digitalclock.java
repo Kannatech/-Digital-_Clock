@@ -7,6 +7,7 @@ public class Digitalclock implements Runnable {
     int hours = 0, minutes = 0, seconds = 0;
     String timeString = "";
     JButton b;
+    JButtin Date;
 
     Digitalclock() {
         f = new JFrame();
@@ -14,10 +15,11 @@ public class Digitalclock implements Runnable {
         f.getContentPane().setBackground(Color.LIGHT_GRAY);
         t = new Thread(this);
         t.start();
-
         b = new JButton();
         b.setBounds(100, 100, 100, 50);
-
+        Date=new JButton();
+        Date.setBounds(100, 160 ,100, 50);
+        f.add(Date);
         f.add(b);
         f.setSize(300, 400);
         f.setLayout(null);
@@ -40,7 +42,14 @@ public class Digitalclock implements Runnable {
 
                 printTime();
 
-                t.sleep(1000);  // interval given in milliseconds
+                t.sleep(1000); // interval given in milliseconds
+                String dt = "2022-12-13";  // Start date
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                Calendar c = Calendar.getInstance();
+                c.setTime(sdf.parse(dt));
+                c.add(Calendar.DATE, 1);  // number of days to add
+                str = sdf.format(c.getTime());
+                printDate();
             }
         } catch (Exception e) {
         }
@@ -48,6 +57,11 @@ public class Digitalclock implements Runnable {
 
     public void printTime() {
         b.setText(timeString);
+    }
+    
+    public void printDate()
+    {
+        Date.setText(str);
     }
 
     public static void main(String[] args) {
