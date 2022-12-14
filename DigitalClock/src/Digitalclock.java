@@ -9,8 +9,8 @@ public class Digitalclock implements Runnable {
     JButton b;
 
     Digitalclock() {
-        f.setTitle("Digital clock");
         f = new JFrame();
+        f.setTitle("Digital clock");
         f.getContentPane().setBackground(Color.LIGHT_GRAY);
         t = new Thread(this);
         t.start();
