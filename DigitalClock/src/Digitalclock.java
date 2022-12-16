@@ -46,11 +46,9 @@ public class Digitalclock implements Runnable {
                 printTime();
 
                 t.sleep(1000); // interval given in milliseconds
-                String dt = "2022-12-13";  // Start date
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
                 Calendar c = Calendar.getInstance();
-                c.setTime(sdf.parse(dt));
-                c.add(Calendar.DATE, 1);  // number of days to add
+                c.add(Calendar.DATE, 0);  // number of days to add
                 datestr = sdf.format(c.getTime());
                 printDate();
             }
